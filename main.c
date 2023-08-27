@@ -11,6 +11,7 @@ int main(int ac, char **av)
     FILE *montyFile;
     size_t lineSize = 1024;
     char *line = NULL;
+    stack_t *mystack = NULL;
 
     line = malloc(sizeof(char) * 1024);
 
@@ -32,7 +33,6 @@ int main(int ac, char **av)
         int isrealcommand;
         int isint;
 
-        stack_t *mystack;
         char *allcommands[] = {"pall", "push", NULL};
 
         int lineno = 0;
@@ -57,7 +57,13 @@ int main(int ac, char **av)
 
         isint = isinteger(strtwo);
 
-        mystack = NULL;
+        if (strcmp(allcommands[0], strone) == 0)
+        {
+            if (mystack != NULL)
+            {
+                pall(mystack);
+            }
+        }
 
         if (strcmp(allcommands[1], strone) == 0)
         {
@@ -69,11 +75,6 @@ int main(int ac, char **av)
             push(&mystack, atoi(strtwo));
         }
         
-        /*
-        fprintf(stdout, "%s\n", strone);
-        fprintf(stdout, "%ld\n", strlen(strtwo));
-        fprintf(stdout, "%d\n", isrealcommand);
-        */
     }
 
     fclose(montyFile);
