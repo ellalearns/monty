@@ -80,6 +80,10 @@ int main(int ac, char **av)
             }
             push(&mystack, atoi(strtwo));
         }
+
+        free(newstr);
+        free(strone);
+        free(strtwo);
     }
 
     fclose(montyFile);

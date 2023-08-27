@@ -45,7 +45,7 @@ char *mystrcpy(char *str, char *newstr);
 int isvalidcommand(char *allcommands[], char *command);
 int isinteger(char *str);
 
-stack_t *push(stack_t **stack, const int n);
+int push(stack_t **stack, const int n);
 int pall(stack_t *stacknode);
 
 
