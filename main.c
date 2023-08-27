@@ -36,9 +36,12 @@ int main(int ac, char **av)
         */
 
         char *newstr = malloc(sizeof(char) * strlen(line));
-        newstr = removeStartSpaces(line, newstr);
+        char *linestr = malloc(sizeof(char) * (strlen(line) + 1));
 
-        fprintf(stdout, "%s", newstr);
+        newstr = removeStartSpaces(line, newstr);
+        linestr = mystrcpy(newstr, linestr);
+
+        fprintf(stdout, "%s\n", linestr);
     }
 
     fclose(montyFile);

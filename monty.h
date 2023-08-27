@@ -41,6 +41,7 @@ typedef struct instruction_s
 char *removeStartSpaces(char *str, char *newstr);
 char *firststr(char *str, char *deststr);
 char *secondString(char *str);
+char *mystrcpy(char *str, char *newstr);
 
 
 #endif
