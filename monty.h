@@ -42,6 +42,10 @@ char *removeStartSpaces(char *str, char *newstr);
 char *firststr(char *str, char *deststr);
 char *secondString(char *str, char *deststr);
 char *mystrcpy(char *str, char *newstr);
+int isvalidcommand(char *allcommands[], char *command);
+int isinteger(char *str);
+
+stack_t *push(stack_t **stack, const int n);
 
 
 #endif
