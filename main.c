@@ -4,6 +4,12 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+/**
+ * main - main function to interpret monty files
+ * @ac: number of arguments
+ * @av: list of arguments
+ * Return: integer 0 or exit failure
+*/
 int main(int ac, char **av)
 {
     FILE *montyFile;
