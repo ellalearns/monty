@@ -17,12 +17,13 @@ char *removeStartSpaces(char *str, char *newstr)
 
     newpos = 0;
 
-    while (str[pos])
+    while (str[pos] != '\0' && str[pos] != '\n')
     {
         newstr[newpos] = str[pos];
         newpos++;
         pos++;
     }
+    newstr[newpos] = '\0';
 
     return (newstr);
 }

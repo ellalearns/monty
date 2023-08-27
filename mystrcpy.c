@@ -4,7 +4,7 @@ char *mystrcpy(char *str, char *newstr)
 {
     int counter;
     counter = 0;
-    while (str[counter] != '$')
+    while (str[counter] != '$' && str[counter] != '\n')
     {
         newstr[counter] = str[counter];
         counter++;

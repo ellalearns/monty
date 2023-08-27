@@ -38,15 +38,20 @@ int main(int ac, char **av)
         int lineno = 0;
 
         char *newstr = malloc(sizeof(char) * strlen(line));
+        /*
         char *linestr = malloc(sizeof(char) * (strlen(line) + 1));
-        char *strone = malloc(sizeof(char) * (strlen(linestr) + 1));
-        char *strtwo = malloc(sizeof(char) * (strlen(linestr) + 1));
+        */
+        char *strone = malloc(sizeof(char) * (strlen(line) + 1));
+        char *strtwo = malloc(sizeof(char) * (strlen(line) + 1));
 
 
         newstr = removeStartSpaces(line, newstr);
+        /*
         linestr = mystrcpy(newstr, linestr);
-        strone = firststr(linestr, strone);
-        strtwo = secondString(linestr, strtwo);
+        */
+        
+        strone = firststr(newstr, strone);
+        strtwo = secondString(newstr, strtwo);
 
         isrealcommand = isvalidcommand(allcommands, strone);
         if (isrealcommand != 0)
@@ -74,7 +79,6 @@ int main(int ac, char **av)
             }
             push(&mystack, atoi(strtwo));
         }
-        
     }
 
     fclose(montyFile);
