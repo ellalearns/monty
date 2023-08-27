@@ -38,7 +38,9 @@ typedef struct instruction_s
 } instruction_t;
 
 
-
+char *removeStartSpaces(char *str, char *newstr);
+char *firststr(char *str, char *deststr);
+char *secondString(char *str);
 
 
 #endif

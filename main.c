@@ -1,8 +1,4 @@
-#include <stdio.h>
 #include "monty.h"
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
 
 /**
  * main - main function to interpret monty files
@@ -33,7 +29,16 @@ int main(int ac, char **av)
 
     while ((fgets(line, lineSize, montyFile)) != NULL)
     {
-        fprintf(stdout, "%s", line);
+        /*
+        char *secstr;
+        char *allcommands[] = {"push", "pall"};
+        char *command[] = {NULL, NULL};
+        */
+
+        char *newstr = malloc(sizeof(char) * strlen(line));
+        newstr = removeStartSpaces(line, newstr);
+
+        fprintf(stdout, "%s", newstr);
     }
 
     fclose(montyFile);
