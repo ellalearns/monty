@@ -12,6 +12,7 @@ int main(int ac, char **av)
     size_t lineSize = 1024;
     char *line = NULL;
     stack_t *mystack = NULL;
+    int lineno = 0;
 
     line = malloc(sizeof(char) * 1024);
 
@@ -35,14 +36,14 @@ int main(int ac, char **av)
 
         char *allcommands[] = {"pall", "push", NULL};
 
-        int lineno = 0;
-
         char *newstr = malloc(sizeof(char) * strlen(line));
         /*
         char *linestr = malloc(sizeof(char) * (strlen(line) + 1));
         */
         char *strone = malloc(sizeof(char) * (strlen(line) + 1));
         char *strtwo = malloc(sizeof(char) * (strlen(line) + 1));
+
+        lineno++;
 
 
         newstr = removeStartSpaces(line, newstr);
