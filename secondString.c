@@ -1,29 +1,36 @@
 #include "monty.h"
 
-char *secondString(char *str)
+char *secondString(char *str, char *deststr)
 {
     int pos;
     int counter;
-    char *newstr;
 
-    newstr = malloc(sizeof(char) * strlen(str));
     pos = 0;
 
-    while (str[pos] != ' ' && str[pos])
+    while (str[pos] != ' ' && str[pos] != '\0')
     {
         pos++;
     }
 
-    pos++;
+    if (str[pos] == '\0')
+    {
+        deststr[0] = '\0';
+        return (deststr);
+    }
 
     counter = 0;
 
-    while (str[pos])
+    while (str[pos] != '\0')
     {
-        newstr[counter] = str[pos];
-        counter++;
+        if (str[pos] != ' ')
+        {
+            deststr[counter] = str[pos];
+            counter++;
+        }
         pos++;
     }
 
-    return (newstr);
+    deststr[counter] = '\0';
+
+    return (deststr);
 }

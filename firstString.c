@@ -5,14 +5,9 @@ char *firststr(char *str, char *deststr)
     int pos = 0;
     int counter = 0;
 
-    while (str[pos] != ' ')
+    while (str[pos] != ' ' && str[pos] != '\0')
     {
         pos++;
-    }
-
-    if (str[0] == '$')
-    {
-        return (str);
     }
 
     while (counter < pos)
@@ -20,6 +15,8 @@ char *firststr(char *str, char *deststr)
         deststr[counter] = str[counter];
         counter++;
     }
+
+    deststr[counter] = '\0';
 
     return (deststr);
 

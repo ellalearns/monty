@@ -34,14 +34,23 @@ int main(int ac, char **av)
         char *allcommands[] = {"push", "pall"};
         char *command[] = {NULL, NULL};
         */
+        /*
+        char* strtwo;
+        int arg;
+        */
 
         char *newstr = malloc(sizeof(char) * strlen(line));
         char *linestr = malloc(sizeof(char) * (strlen(line) + 1));
+        char *strone = malloc(sizeof(char) * (strlen(linestr) + 1));
+        char *strtwo = malloc(sizeof(char) * (strlen(linestr) + 1));
 
         newstr = removeStartSpaces(line, newstr);
         linestr = mystrcpy(newstr, linestr);
-
-        fprintf(stdout, "%s\n", linestr);
+        strone = firststr(linestr, strone);
+        strtwo = secondString(linestr, strtwo);
+        
+        fprintf(stdout, "%s\n", strone);
+        fprintf(stdout, "%s\n", strtwo);
     }
 
     fclose(montyFile);
