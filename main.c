@@ -88,6 +88,7 @@ int main(int ac, char **av)
 
     fclose(montyFile);
     free(line);
+    freestack(mystack);
 
     return (0);
 
