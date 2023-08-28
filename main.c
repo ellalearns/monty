@@ -13,6 +13,7 @@ int main(int ac, char **av)
     char *line = NULL;
     stack_t *mystack = NULL;
     int lineno = 0;
+    int no = 0;
 
     line = malloc(sizeof(char) * 1024);
 
@@ -33,8 +34,10 @@ int main(int ac, char **av)
     {
         int isrealcommand;
         int isint;
+        int poa = 1;
 
-        char *allcommands[] = {"pall", "push", "pint", NULL};
+
+        char *allcommands[] = {"pall", "push", "pint", "pop", NULL};
 
         char *newstr = malloc(sizeof(char) * strlen(line));
         /*
@@ -43,8 +46,13 @@ int main(int ac, char **av)
         char *strone = malloc(sizeof(char) * (strlen(line) + 1));
         char *strtwo = malloc(sizeof(char) * (strlen(line) + 1));
 
-        lineno++;
+        
 
+/*
+        no = nodes(mystack);
+        */
+
+        lineno++;
 
         newstr = removeStartSpaces(line, newstr);
         /*
@@ -70,7 +78,7 @@ int main(int ac, char **av)
 
         if (strcmp(allcommands[0], strone) == 0)
         {
-            if (mystack != NULL)
+            if (mystack != NULL && no > 0)
             {
                 pall(mystack);
             }
@@ -89,6 +97,7 @@ int main(int ac, char **av)
                 exit(EXIT_FAILURE);
             }
             push(&mystack, atoi(strtwo));
+            no++;
         }
 
         if (strcmp(allcommands[2], strone) == 0)
@@ -96,6 +105,35 @@ int main(int ac, char **av)
             pint(mystack, lineno);
         }
 
+        if (strcmp(allcommands[3], strone) == 0)
+        {
+            if (no >= 1)
+            {
+                pop(mystack);
+                no--;
+                continue;
+            }
+
+            if (no < 1)
+            {
+                /*
+                if (poa == 0)
+                {
+                    pop(mystack);
+                    poa++;
+                    printf("changed\n");
+                    printf("poa: %d\n", poa);
+                }
+                */
+                
+                if (poa > 0)
+                {
+                    fprintf(stderr, "L%d: can't pop an empty stack\n", lineno);
+                    exit(EXIT_FAILURE);
+                }
+                
+            }
+        }
         free(newstr);
         free(strone);
         free(strtwo);

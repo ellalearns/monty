@@ -49,6 +49,8 @@ stack_t *push(stack_t **stack, const int n);
 int pall(stack_t *stacknode);
 void freestack(stack_t *stack);
 int pint(stack_t *stacknode, int lineno);
+int pop(stack_t *stacknode);
+int nodes(stack_t *stacknode);
 
 
 #endif

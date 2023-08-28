@@ -8,6 +8,7 @@ int pint(stack_t *stacknode, int lineno)
     if (stacknode == NULL)
     {
         fprintf(stderr, "L%d: can't pint, stack empty", lineno);
+        exit(EXIT_FAILURE);
     }
 
     currentNode = stacknode;
