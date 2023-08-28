@@ -34,7 +34,7 @@ int main(int ac, char **av)
         int isrealcommand;
         int isint;
 
-        char *allcommands[] = {"pall", "push", NULL};
+        char *allcommands[] = {"pall", "push", "pint", NULL};
 
         char *newstr = malloc(sizeof(char) * strlen(line));
         /*
@@ -89,6 +89,11 @@ int main(int ac, char **av)
                 exit(EXIT_FAILURE);
             }
             push(&mystack, atoi(strtwo));
+        }
+
+        if (strcmp(allcommands[2], strone) == 0)
+        {
+            pint(mystack, lineno);
         }
 
         free(newstr);
