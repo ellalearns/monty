@@ -37,7 +37,7 @@ int main(int ac, char **av)
         int poa = 1;
 
 
-        char *allcommands[] = {"pall", "push", "pint", "pop", NULL};
+        char *allcommands[] = {"pall", "push", "pint", "pop", "nop", NULL};
 
         char *newstr = malloc(sizeof(char) * strlen(line));
         /*
@@ -134,6 +134,12 @@ int main(int ac, char **av)
                 
             }
         }
+
+        if (strcmp(allcommands[4], strone) == 0)
+        {
+            continue;
+        }
+
         free(newstr);
         free(strone);
         free(strtwo);
