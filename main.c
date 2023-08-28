@@ -54,6 +54,11 @@ int main(int ac, char **av)
         strone = firststr(newstr, strone);
         strtwo = secondString(newstr, strtwo);
 
+        if (strone[0] == '\0')
+        {
+            continue;
+        }
+
         isrealcommand = isvalidcommand(allcommands, strone);
         if (isrealcommand != 0)
         {
@@ -73,7 +78,12 @@ int main(int ac, char **av)
 
         if (strcmp(allcommands[1], strone) == 0)
         {
-            if (isint != 0)
+            if (isint != 0 && (strtwo[0] < '0' || strtwo[0] > '9') && strtwo[0] != '-')
+            {
+                fprintf(stderr, "L%d: usage: push integer\n", lineno);
+                exit(EXIT_FAILURE);
+            }
+            if (isint != 0 && strtwo[0] != '-')
             {
                 fprintf(stderr, "L%d: usage: push integer\n", lineno);
                 exit(EXIT_FAILURE);
