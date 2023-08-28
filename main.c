@@ -93,7 +93,12 @@ exit(EXIT_FAILURE);
 }
 }
 if (strcmp(allcommands[4], strone) == 0)
+{
+free(newstr);
+free(strone);
+free(strtwo);
 continue;
+}
 free(newstr);
 free(strone);
 free(strtwo);
